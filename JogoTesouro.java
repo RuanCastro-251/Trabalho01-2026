@@ -50,6 +50,21 @@ public class JogoTesouro {
         // if();
     }
 
+    private static String sortear() {
+        String tipos[] = { "OURO", "DIAMANTE", "RUBI", "BURACO", "COBRA", "ESPINHOS", "VAZIO" };
+
+        int posicao = (int) (Math.random() * 7);
+
+        return tipos[posicao];
+    }
+
+    static void exibirBoasVindas() {
+        System.out.println("Seja Bem-vindo ao jogo Ilha dos Tesouros!\n");
+        System.out.println("A ilha possui 15 posições, que são numeradas de 0 a 14.");
+        System.out.println("Você possui 8 tentativas para encontrar os tesouros.");
+
+    }
+
     public static void main(String[] args) {
         new JogoTesouro();
     }
