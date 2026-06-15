@@ -21,6 +21,4 @@ public class TrabalhoFinal {
         
     }
 }
-=======
-public static String palavra;
->>>>>>> d2d886bdfb3188599611c882b944af95b847125b
+
