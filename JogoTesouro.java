@@ -6,10 +6,12 @@ public class JogoTesouro {
         Scanner teste = new Scanner(System.in);
         String armadilhas[] = new String[3];
         String tesouros[] = new String[3];
+        int pontuacao = 0;
 
         int opcao;
 
         do {
+            
             System.out.println("===== ILHA DOS TESOUROS =====\r\n" + //
                     "1 - Mostrar instruções\r\n" + //
                     "2 - Mostrar mapa\r\n" + //
