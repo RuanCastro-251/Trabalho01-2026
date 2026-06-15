@@ -23,7 +23,11 @@ public class TrabalhoFinal {
         
     }
 }
+<<<<<<< HEAD
 =======
 public static String palavra;
 >>>>>>> d2d886bdfb3188599611c882b944af95b847125b
 >>>>>>> 1d3604a7f3747b8acab5e2d12f66b37a4ebe3a3a
+=======
+
+>>>>>>> e786415bce4981ec69715aa9f3d460b3493ffef3
