@@ -1,9 +1,11 @@
+
 /* Trabalho Final - Jogo da Ilha dos Tesouros 
  * Enunciado:
  * Desenvolver um jogo em Java, executado via Console, utilizando os conteúdos estudados na disciplina de Introdução à Programação.
  *
  *
 */
+
 public class TrabalhoFinal {
     public static void main(String[] args) {
 
@@ -42,3 +44,4 @@ public class TrabalhoFinal {
 
     }
 }
+public static String palavra;
