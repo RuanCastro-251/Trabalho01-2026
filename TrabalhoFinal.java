@@ -9,8 +9,6 @@
 public class TrabalhoFinal {
     public static void main(String[] args) {
 
-        
-
         System.out.println("Bem-vindo ao Jogo da Ilha dos Tesouros!");
         System.out.println("Você está em uma ilha misteriosa e precisa encontrar o tesouro escondido.");
 
@@ -44,4 +42,5 @@ public class TrabalhoFinal {
 
     }
 }
+
 public static String palavra;
