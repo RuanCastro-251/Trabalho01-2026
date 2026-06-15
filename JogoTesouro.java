@@ -48,8 +48,8 @@ public class JogoTesouro {
     }
 
     static void exibirBoasVindas() {
-        System.out.println("Bem-vindo ao jogo Ilha dos Tesouros!\n");
-        System.out.println("A ilha possui 15 posições, numeradas de 0 a 14.");
+        System.out.println("Seja Bem-vindo ao jogo Ilha dos Tesouros!\n");
+        System.out.println("A ilha possui 15 posições, que são numeradas de 0 a 14.");
         System.out.println("Você possui 8 tentativas para encontrar os tesouros.");
 
     }
