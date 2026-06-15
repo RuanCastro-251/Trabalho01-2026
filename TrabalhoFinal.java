@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class TrabalhoFinal {
     public static void main(String[] args) {
         System.out.println("Bem-vindo ao Jogo da Ilha dos Tesouros!");
@@ -20,3 +21,6 @@ public class TrabalhoFinal {
         
     }
 }
+=======
+public static String palavra;
+>>>>>>> d2d886bdfb3188599611c882b944af95b847125b
