@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JogoTesouro {
@@ -6,6 +7,7 @@ public class JogoTesouro {
         Scanner teste = new Scanner(System.in);
         String armadilhas[] = new String[3];
         String tesouros[] = new String[3];
+        String mapa[] = new String[10];
 
         int opcao;
 
@@ -32,11 +34,20 @@ public class JogoTesouro {
                     break;
 
                 case 2:
+                    mapa(mapa);
 
                 default:
                     break;
             }
-        } while (opcao != 4);
+        } while (opcao != 5);
+    }
+
+    private void mapa(String[] mapa) {
+        for (int i = 0; i < mapa.length; i++) {
+            mapa[i] = "?";
+            System.out.println("[" + i + "]" + mapa[i]);
+        }
+        // if();
     }
 
     public static void main(String[] args) {
