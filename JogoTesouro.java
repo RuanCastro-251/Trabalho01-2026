@@ -6,6 +6,7 @@ public class JogoTesouro {
         Scanner teste = new Scanner(System.in);
         String armadilhas[] = new String[3];
         String tesouros[] = new String[3];
+
         int opcao;
 
         do {
@@ -17,8 +18,24 @@ public class JogoTesouro {
                     "5 - Sair\r\n" + //
                     "Escolha uma opção:");
             opcao = teste.nextInt();
-            System.out.println("Sai");
 
+            switch (opcao) {
+                case 1:
+                    System.out.println("Instruções do  Jogo:");
+                    System.out.println(
+                            "1- Cada posição do jogador é representada por um vetor, onde, em cada posição, pode conter um tesouro, uma armadilha ou estar vazia.\n");
+                    System.out.println("2- Os tipos de tesouros existentes são: Ouro, Diamante e Rubi.\n");
+                    System.out.println("3- O jogador pode cair nas seguintes armadilhas: Buraco, Cobra e Espinhos.\n");
+                    System.out.println(
+                            "4- O objetivo do jogador é explorar posições da ilha, encontrar tesouros, evitar armadilhas e fazer a maior pontuação possível antes que as tentativas acabem.\n");
+
+                    break;
+
+                case 2:
+
+                default:
+                    break;
+            }
         } while (opcao != 4);
     }
 
