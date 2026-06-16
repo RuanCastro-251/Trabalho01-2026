@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JogoTesouro {
@@ -8,8 +7,9 @@ public class JogoTesouro {
         String armadilhas[] = new String[3];
         String tesouros[] = new String[3];
         String mapa[] = new String[15];
-        int tentativas[] = new int[8];
-
+        int tentativas = 8;
+        int posicao = 0;
+        int pontuação = 0;
         int opcao;
         exibirBoasVindas();
 
@@ -39,7 +39,8 @@ public class JogoTesouro {
                     mapa(mapa);
 
                 case 3:
-
+                    jogo(posicao, teste, mapa, pontuação);
+                    System.out.println(pontuação);
                 default:
                     break;
             }
@@ -47,11 +48,45 @@ public class JogoTesouro {
     }
 
     private void mapa(String[] mapa) {
+
         for (int i = 0; i < mapa.length; i++) {
             mapa[i] = "?";
             System.out.println("[" + i + "]" + mapa[i]);
         }
-        // if();
+    }
+
+    private int jogo(int posicao, Scanner teste, String mapa[], int pontuação) {
+        mapa[0] = "OURO";
+        mapa[1] = "DIAMANTE";
+        mapa[2] = "RUBI";
+        mapa[3] = "BURACO";
+        mapa[4] = "COBRA";
+        mapa[5] = "ESPINHOS";
+
+        for (int i = 6; i < mapa.length; i++) {
+            mapa[i] = "VAZIO";
+        }
+        System.out.println("Informe uma posição: ");
+        posicao = teste.nextInt();
+        if (posicao >= 0 && posicao <= 14) {
+            if (mapa[posicao].equals("OURO")) {
+                pontuação += 10;
+            } else if (mapa[posicao].equals("DIAMANTE")) {
+                pontuação += 20;
+            } else if (mapa[posicao].equals("RUBI")) {
+                pontuação += 15;
+            } else if (mapa[posicao].equals("BURACO")) {
+                pontuação -= 5;
+            } else if (mapa[posicao].equals("COBRA")) {
+                pontuação -= 10;
+            } else if (mapa[posicao].equals("ESPINHOS")) {
+                pontuação -= 7;
+            } else {
+                pontuação += 0;
+            }
+
+        }
+        return pontuação;
     }
 
     private static String sortear() {
