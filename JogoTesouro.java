@@ -7,9 +7,11 @@ public class JogoTesouro {
         Scanner teste = new Scanner(System.in);
         String armadilhas[] = new String[3];
         String tesouros[] = new String[3];
-        String mapa[] = new String[10];
+        String mapa[] = new String[15];
+        int tentativas[] = new int[8];
 
         int opcao;
+        exibirBoasVindas();
 
         do {
             System.out.println("===== ILHA DOS TESOUROS =====\r\n" + //
@@ -36,6 +38,8 @@ public class JogoTesouro {
                 case 2:
                     mapa(mapa);
 
+                case 3:
+
                 default:
                     break;
             }
@@ -61,7 +65,7 @@ public class JogoTesouro {
     static void exibirBoasVindas() {
         System.out.println("Seja Bem-vindo ao jogo Ilha dos Tesouros!\n");
         System.out.println("A ilha possui 15 posições, que são numeradas de 0 a 14.");
-        System.out.println("Você possui 8 tentativas para encontrar os tesouros.");
+        System.out.println("Você possui 8 tentativas apara encontrar os tesouros.");
 
     }
 
