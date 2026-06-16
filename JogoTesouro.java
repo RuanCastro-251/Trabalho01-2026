@@ -6,23 +6,24 @@ public class JogoTesouro {
         Scanner teste = new Scanner(System.in);
         String armadilhas[] = new String[3];
         String tesouros[] = new String[3];
-<<<<<<< HEAD
         String mapa[] = new String[15];
         int tentativas = 8;
         int posicao = 0;
-        int pontuação = 0;
-=======
-
         int pontuacao = 0;
-
-        String mapa[] = new String[10];
-
->>>>>>> 21e8d9c1e6103fd98c696d89fd53883507c21aa4
         int opcao;
         exibirBoasVindas();
+        mapa[0] = "OURO";
+        mapa[1] = "DIAMANTE";
+        mapa[2] = "RUBI";
+        mapa[3] = "BURACO";
+        mapa[4] = "COBRA";
+        mapa[5] = "ESPINHOS";
 
+        for (int i = 6; i < mapa.length; i++) {
+            mapa[i] = "VAZIO";
+        }
         do {
-            
+
             System.out.println("===== ILHA DOS TESOUROS =====\r\n" + //
                     "1 - Mostrar instruções\r\n" + //
                     "2 - Mostrar mapa\r\n" + //
@@ -46,10 +47,14 @@ public class JogoTesouro {
 
                 case 2:
                     mapa(mapa);
+                    break;
 
                 case 3:
-                    jogo(posicao, teste, mapa, pontuação);
-                    System.out.println(pontuação);
+                    for (int i = 0; i < tentativas; i++) {
+                        pontuacao = jogo(posicao, teste, mapa, pontuacao);
+                        System.out.println(pontuacao);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -64,38 +69,31 @@ public class JogoTesouro {
         }
     }
 
-    private int jogo(int posicao, Scanner teste, String mapa[], int pontuação) {
-        mapa[0] = "OURO";
-        mapa[1] = "DIAMANTE";
-        mapa[2] = "RUBI";
-        mapa[3] = "BURACO";
-        mapa[4] = "COBRA";
-        mapa[5] = "ESPINHOS";
+    private int jogo(int posicao, Scanner teste, String mapa[], int pontuacao) {
 
-        for (int i = 6; i < mapa.length; i++) {
-            mapa[i] = "VAZIO";
-        }
         System.out.println("Informe uma posição: ");
         posicao = teste.nextInt();
+        System.out.println("Você encontrou: " + mapa[posicao]);
+
         if (posicao >= 0 && posicao <= 14) {
             if (mapa[posicao].equals("OURO")) {
-                pontuação += 10;
+                pontuacao += 10;
             } else if (mapa[posicao].equals("DIAMANTE")) {
-                pontuação += 20;
+                pontuacao += 20;
             } else if (mapa[posicao].equals("RUBI")) {
-                pontuação += 15;
+                pontuacao += 15;
             } else if (mapa[posicao].equals("BURACO")) {
-                pontuação -= 5;
+                pontuacao -= 5;
             } else if (mapa[posicao].equals("COBRA")) {
-                pontuação -= 10;
+                pontuacao -= 10;
             } else if (mapa[posicao].equals("ESPINHOS")) {
-                pontuação -= 7;
+                pontuacao -= 7;
             } else {
-                pontuação += 0;
+                pontuacao += 0;
             }
 
         }
-        return pontuação;
+        return pontuacao;
     }
 
     private static String sortear() {
