@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class JogoTesouro {
-    private String[] mapa = new String[3];
+
     private int pontuacao = 0;
     private int tentativasRestantes = 8;
     private int tesourosEncontrados = 0;
@@ -10,40 +10,20 @@ public class JogoTesouro {
 
     public JogoTesouro() {
         Scanner teste = new Scanner(System.in);
-<<<<<<< HEAD
         String armadilhas[] = new String[3];
         String tesouros[] = new String[3];
         String mapa[] = new String[15];
+        String[] opcoes = { "OURO", "DIAMANTE", "RUBI", "BURACO", "COBRA", "ESPINHOS", "VAZIO" };
+        String[] mapaInterrogacao = new String[15];
         int tentativas = 8;
         int posicao = 0;
         int pontuacao = 0;
-=======
->>>>>>> 9c28cb8d59cf53cadf24a31d448bf0eccee52ad4
         int opcao;
-        
-        popularIlhaRandomico();
+
+        popularIlhaRandomico(opcoes, mapa);
         exibirBoasVindas();
-        mapa[0] = "OURO";
-        mapa[1] = "DIAMANTE";
-        mapa[2] = "RUBI";
-        mapa[3] = "BURACO";
-        mapa[4] = "COBRA";
-        mapa[5] = "ESPINHOS";
 
-        for (int i = 6; i < mapa.length; i++) {
-            mapa[i] = "VAZIO";
-        }
         do {
-<<<<<<< HEAD
-
-            System.out.println("===== ILHA DOS TESOUROS =====\r\n" + //
-                    "1 - Mostrar instruções\r\n" + //
-                    "2 - Mostrar mapa\r\n" + //
-                    "3 - Jogar\r\n" + //
-                    "4 - Mostrar status\r\n" + //
-                    "5 - Sair\r\n" + //
-                    "Escolha uma opção:");
-=======
             System.out.println("\n===== ILHA DOS TESOUROS =====");
             System.out.println("1 - Mostrar instruções");
             System.out.println("2 - Mostrar mapa");
@@ -51,7 +31,6 @@ public class JogoTesouro {
             System.out.println("4 - Mostrar status");
             System.out.println("5 - Sair");
             System.out.print("Escolha uma opção: ");
->>>>>>> 9c28cb8d59cf53cadf24a31d448bf0eccee52ad4
             opcao = teste.nextInt();
 
             switch (opcao) {
@@ -60,22 +39,15 @@ public class JogoTesouro {
                     break;
 
                 case 2:
-<<<<<<< HEAD
-                    mapa(mapa);
-                    break;
-
-                case 3:
-                    for (int i = 0; i < tentativas; i++) {
-                        pontuacao = jogo(posicao, teste, mapa, pontuacao);
-                        System.out.println(pontuacao);
+                    for (int i = 0; i < mapa.length; i++) {
+                        mapaInterrogacao[i] = "?";
                     }
-                    break;
-=======
-                    mostrarMapa();
+                    mostrarMapa(mapa, opcoes, mapaInterrogacao);
                     break;
 
                 case 3:
-                    jogarRodada(teste);
+                    jogarRodada(teste, mapa);
+
                     break;
 
                 case 4:
@@ -86,50 +58,11 @@ public class JogoTesouro {
                     System.out.println("Saindo do jogo... Até logo!");
                     break;
 
->>>>>>> 9c28cb8d59cf53cadf24a31d448bf0eccee52ad4
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
                     break;
             }
-<<<<<<< HEAD
-        } while (opcao != 5);
-    }
 
-    private void mapa(String[] mapa) {
-
-        for (int i = 0; i < mapa.length; i++) {
-            mapa[i] = "?";
-            System.out.println("[" + i + "]" + mapa[i]);
-        }
-    }
-
-    private int jogo(int posicao, Scanner teste, String mapa[], int pontuacao) {
-
-        System.out.println("Informe uma posição: ");
-        posicao = teste.nextInt();
-        System.out.println("Você encontrou: " + mapa[posicao]);
-
-        if (posicao >= 0 && posicao <= 14) {
-            if (mapa[posicao].equals("OURO")) {
-                pontuacao += 10;
-            } else if (mapa[posicao].equals("DIAMANTE")) {
-                pontuacao += 20;
-            } else if (mapa[posicao].equals("RUBI")) {
-                pontuacao += 15;
-            } else if (mapa[posicao].equals("BURACO")) {
-                pontuacao -= 5;
-            } else if (mapa[posicao].equals("COBRA")) {
-                pontuacao -= 10;
-            } else if (mapa[posicao].equals("ESPINHOS")) {
-                pontuacao -= 7;
-            } else {
-                pontuacao += 0;
-            }
-
-        }
-        return pontuacao;
-=======
-            
             if (tentativasRestantes <= 0) {
                 System.out.println("\n=== FIM DE JOGO! Suas tentativas acabaram. ===");
                 mostrarStatus();
@@ -137,12 +70,11 @@ public class JogoTesouro {
             }
 
         } while (opcao != 5);
-        
+
         teste.close();
->>>>>>> 9c28cb8d59cf53cadf24a31d448bf0eccee52ad4
     }
 
-    private void exibirInstrucoes() {
+    private void exibirInstrucoes() {// Correto
         System.out.println("\n=== INSTRUÇÕES DO JOGO ===");
         System.out.println("- Escolha uma posição de 0 a 14 para explorar na ilha.");
         System.out.println("- Tesouros disponíveis: OURO (+10), DIAMANTE (+20), RUBI (+15).");
@@ -152,31 +84,59 @@ public class JogoTesouro {
         System.out.println("- O jogo acaba se as tentativas zerarem ou se você escolher sair.");
     }
 
-    private void popularIlhaRandomico() {
-        String[] opcoes = { "OURO", "DIAMANTE", "RUBI", "BURACO", "COBRA", "ESPINHOS", "VAZIO" };
+    private String[] popularIlhaRandomico(String[] opcoes, String[] mapa) {
+
         for (int i = 0; i < mapa.length; i++) {
             int indiceSorteado = (int) (Math.random() * opcoes.length);
             mapa[i] = opcoes[indiceSorteado];
         }
+
+        return mapa;
     }
 
-    private void mostrarMapa() {
+    private void mostrarMapa(String[] mapa, String[] opcoes, String[] mapaInterrogacao) {
         System.out.println("\n=== MAPA DA ILHA ===");
         for (int i = 0; i < mapa.length; i++) {
 
-            System.out.println("[" + i + "] ?");
+            if (mapa[i].equals("OURO")) {
+                mapaInterrogacao[i] = opcoes[0];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
+
+            } else if (mapa[i].equals("DIAMANTE")) {
+                mapaInterrogacao[i] = opcoes[1];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
+            } else if (mapa[i].equals("RUBI")) {
+                mapaInterrogacao[i] = opcoes[2];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
+            } else if (mapa[i].equals("BURACO")) {
+                mapaInterrogacao[i] = opcoes[3];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
+            } else if (mapa[i].equals("COBRA")) {
+                mapaInterrogacao[i] = opcoes[4];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
+            } else if (mapa[i].equals("ESPINHOS")) {
+                mapaInterrogacao[i] = opcoes[5];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
+            } else if (mapa[i].equals("VAZIO")) {
+                mapaInterrogacao[i] = opcoes[6];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
+            } else {
+                System.out.println("[" + i + "] ?");
+            }
+
         }
+
     }
 
-    private void jogarRodada(Scanner teste) {
+    private void jogarRodada(Scanner teste, String[] mapa) {
         System.out.print("\nInforme uma posição para explorar (0 a 14): ");
         int posicao = teste.nextInt();
 
         if (posicao >= 0 && posicao < mapa.length) {
             String itemEncontrado = mapa[posicao];
-            
+
             calcularEAtualizarPontuacao(itemEncontrado);
-            
+
             tentativasRestantes--;
             System.out.println("Tentativas restantes: " + tentativasRestantes);
         } else {
