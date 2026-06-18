@@ -99,8 +99,8 @@ public class JogoTesouro {
         for (int i = 0; i < mapa.length; i++) {
 
             if (mapa[i].equals("OURO")) {
-
-                System.out.println("[" + i + "] " + opcoes[0]);
+                mapaInterrogacao[i] = opcoes[0];
+                System.out.println("[" + i + "] " + mapaInterrogacao[i]);
 
             } else if (mapa[i].equals("DIAMANTE")) {
                 mapaInterrogacao[i] = opcoes[1];
